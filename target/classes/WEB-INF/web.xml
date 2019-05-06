@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <!-- Filter mappings ================================================ -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-mvc.xml</param-value>
+    </context-param>
+
+    <welcome-file-list>
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!--<servlet>
+        <servlet-name>AppServlet</servlet-name>
+        <servlet-class>com.zcl.controller.AppController</servlet-class>
+        <load-on-startup>1</load-on-startup>&lt;!&ndash;大于0的则表示在容器启动的时候就加载&ndash;&gt;
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AppServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>-->
+
+    <!-- Spring配置 -->
+    <!-- ====================================== -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>logFilter</filter-name>
+        <filter-class>com.zcl.filter.FilterMessage</filter-class>
+        <init-param>
+            <param-name>namespace</param-name>
+            <param-value>ceshi</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>logFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>logFilter2</filter-name>
+        <filter-class>com.zcl.filter.FilterMessage2</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>logFilter2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <servlet>
+        <servlet-name>SpringMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SpringMVC</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+</web-app>
+        
