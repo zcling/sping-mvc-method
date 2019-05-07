@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 /**
+ * 通过注解的方式实现映射
  * Created by zcl on 2019-05-05.
  */
 @Controller
