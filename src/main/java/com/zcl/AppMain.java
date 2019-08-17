@@ -23,7 +23,7 @@ public class AppMain {
         System.out.println(student.toString());
 */
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        User user = (User) applicationContext.getBean("getUser");
+        User user = (User) applicationContext.getBean(" t getUser");
     }
 
     @Test
