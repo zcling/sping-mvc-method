@@ -24,7 +24,7 @@ public class AppMain {
 */
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         User user = (User) applicationContext.getBean("getUser");
-        System.out.println("测试提交");
+        System.out.println("测试提交-----");
     }
 
     @Test
